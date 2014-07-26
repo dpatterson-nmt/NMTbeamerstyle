@@ -1,0 +1,52 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \ifnum\thepage>1\relax%
+    \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \fill[color=RILred] (0,0.775) rectangle(\the\paperwidth,0.715); % <- Dimensions of RILred box
+    \fill[color=Grey] (0,0) rectangle(\the\paperwidth,0.7); % <- Dimensions of grey box
+  \else
+    \fill[color=NMTblue] (0,7) rectangle (\the\paperwidth,9.8);% <- Dimensions of NMTblue box
+    \fill[color=RILred] (0,0.775) rectangle(\the\paperwidth,0.715); % <- Dimensions of RILred box
+    \fill[color=Grey] (0,0) rectangle(\the\paperwidth,0.7); % <- Dimensions of grey box
+  \fi
+  \end{tikzpicture}
+}
+
+%%% Items %%%
+\setbeamertemplate{items}[square]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+%%% Title page %%%
+\setbeamertemplate{title page}{
+  \begin{textblock*}{12cm}(2.5cm,-2cm)
+    \begin{beamercolorbox}[wd=8cm]{title page header}
+      \insertmotto%
+    \end{beamercolorbox}%
+  \end{textblock*}
+  \begin{textblock*}{12cm}(2.5cm,2.8cm)
+    \begin{beamercolorbox}[wd=8cm]{title page header}
+      \usebeamerfont{title}\usebeamercolor{title}\inserttitle%
+    \end{beamercolorbox}%
+  \end{textblock*}
+  \begin{textblock*}{9cm}(-0.5cm,5cm)
+    \begin{beamercolorbox}{date}
+      \usebeamerfont{date}\insertdate%
+    \end{beamercolorbox}
+  \end{textblock*}
+  \begin{textblock*}{9cm}(2.5cm,5cm)
+    \begin{beamercolorbox}{date}
+      \usebeamerfont{date}\insertinstitute%
+    \end{beamercolorbox}
+  \end{textblock*}
+  \begin{textblock*}{9cm}(2.5cm,4cm)
+    \begin{beamercolorbox}{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+  \end{textblock*}
+}
+
+
+\mode<all>
