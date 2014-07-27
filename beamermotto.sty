@@ -1,0 +1,22 @@
+% 
+% 
+% (c) David Patterson
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+% 
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{beamermotto}
+  [2011/01/11 v0.01 LaTeX package for inserting a tagline (motto) into beamer]
+
+\newcommand{\motto}{\beamer@theme@motto}
+\long\def\beamer@theme@motto#1{%
+  \def\insertmotto{#1}%
+}
+
+\endinput
+
+%%
+%% End of file `beamermotto.sty'.
