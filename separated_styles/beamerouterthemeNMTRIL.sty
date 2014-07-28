@@ -6,7 +6,6 @@
 \newif\ifbeamer@theme@subsection
 \beamer@theme@subsectiontrue
 
-%\DeclareOptionBeamer{footline}{\csname beamer@theme@footline@#1\endcsname}
 \DeclareOptionBeamer{subsection}[true]{\csname beamer@theme@subsection#1\endcsname}
 \ProcessOptionsBeamer
 
@@ -35,19 +34,31 @@
 \vskip1cm%
   \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
   \begin{tikzpicture}
-  \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1.2);
-  \fill[orange] (0,0) rectangle(2.95,1.2);
-  \fill[blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.2);
-   \ifx\insertframesubtitle\@empty%
-      {\node[anchor=west, white,font=\large] at (3.2,0.61){\insertframetitle};}
-      \else%
-      {\node[anchor= west, white,font=\large] at (3.2,0.81){\insertframetitle};%
-       \node[anchor= west, white,font=\small] at (3.2,0.41){\insertframesubtitle};}%
-      \fi
+    \useasboundingbox[fill = white](0,0) rectangle(\the\paperwidth,1.2);
+    \node[anchor=west, font = \large] at (0.75,1.875){\insertframetitle};
+    \ifx\insertframesubtitle\@empty%
+    \else%
+      {\node[anchor= west, black, font=\small] at (1,1.375){\insertframesubtitle};}%
+    \fi
   \end{tikzpicture}
   \end{beamercolorbox}
+  \vspace{-1.25cm}
+  \begin{textblock*}{9cm}(11cm, 7.65cm)
+    \begin{beamercolorbox}{date}
+      \usebeamerfont{date}\normalsize\insertframenumber%
+    \end{beamercolorbox}
+  \end{textblock*}
 }
 
+%%% Gets rid of fading on blocks %%%
+\makeatletter
+\pgfdeclareverticalshading[lower.bg,upper.bg]{bmb@transition}{200cm}{%
+  color(0pt)=(lower.bg); color(4pt)=(lower.bg); color(4pt)=(upper.bg)}
+\makeatother
+
+
 \setbeamertemplate{itemize items}{$\bullet$}
+\setbeamertemplate{blocks}[rounded][shadow = false]
+\setbeamertemplate{caption}[numbered]
 
 \mode<all>

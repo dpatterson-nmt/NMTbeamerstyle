@@ -1,0 +1,26 @@
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+%
+%
+%% This package gives the ability to insert a column with a shorter command.
+%% '\(' starts the column environment
+%% '\)' ends the column environment
+%% '\<' starts the first column
+	%% A width for the column must be added in curly braces, e.g. {0.49\textwidth}
+%% '\>' ends the first column
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{columnshort}
+  [2014/07/27 v0.01 LaTeX package giving a shortcut for inserting columns]
+
+\renewcommand{\(}{\begin{columns}}
+\renewcommand{\)}{\end{columns}}
+\newcommand{\<}[1]{\begin{column}{#1}}
+\renewcommand{\>}{\end{column}}
+
+\endinput
+
+%%
+%% End of file `beamermotto.sty'.

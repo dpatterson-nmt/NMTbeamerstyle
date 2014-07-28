@@ -1,0 +1,257 @@
+\documentclass[compress, xcolor = svgnames, t]{beamer}
+\usepackage{lmodern, beamermotto, columnshort}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\title{NMT RIL Beamer Template}
+\subtitle{Beamer template for the mechanical engineering robotics lab}
+\author[DP]{David Patterson \texttt{dpatterson.nmt@gmail.com}}
+\institute[NMT]{New Mexico Institute of Technology}
+\date{\today}
+%% If you don't want a logo on the title page, leave the area between the curly braces blank
+\titlegraphic{\includegraphics[width=0.375\textwidth]{/Users/photojaguar/Documents/Templates/Logos/NMT_RIL_Logo.pdf}}
+
+\usetheme{NMTRIL}
+
+%% If you don't want a motto, leave the area between the curly braces blank
+\motto{\color{RILred}\textrm{\emph{``Add a cool motto or quote or whatever'' -- DCP}}}
+
+\begin{document}
+
+\begin{frame}[c]
+\titlepage
+\end{frame}
+
+\begin{frame}\frametitle{Outline}
+	\tableofcontents[hidesubsections]
+\end{frame}
+
+\section{Various Blocks} %
+\label{sec:various_blocks}
+
+\begin{frame}\frametitle{Outline}\framesubtitle{Theorem}
+	\tableofcontents[currentsubsection, hideothersubsections]	
+\end{frame}
+
+\subsection{Theorem} %
+\label{sub:theorem}
+
+\begin{frame}\frametitle{Theorem}\framesubtitle{Shown is a theorem block} 
+\begin{theorem}
+Theorem goes here
+\end{theorem}
+\end{frame}
+
+% subsection theorem (end)
+
+\subsection{Block} %
+\label{sub:block}
+
+\begin{frame}\frametitle{Block}\framesubtitle{Shown is a block} 
+\begin{block}{Block Title}
+Block Body
+\end{block}
+\end{frame}
+
+% subsection block (end)
+
+\subsection{Example Block} %
+\label{sub:example_block}
+
+\begin{frame}\frametitle{Example Block}\framesubtitle{Shown is an example block}
+\begin{example}{Example Block Title}
+Example Block Body
+\end{example}
+\end{frame}
+
+% subsection example_block (end)
+
+\subsection{Alert Block} %
+\label{sub:alert_block}
+
+\begin{frame}\frametitle{Alert Block}\framesubtitle{Shown is an alert block}
+\begin{alertblock}{Alert Block Title}
+Alert Block Body
+\end{alertblock}
+\end{frame}
+
+% subsection alert_block (end)
+
+% section various_blocks (end)
+
+\section{Lists and Tables} %
+\label{sec:lists}
+
+\begin{frame}\frametitle{Outline}\framesubtitle{Lists and Tables}
+	\tableofcontents[currentsubsection, hideothersubsections]	
+\end{frame}
+
+\subsection{Enumerate} %
+\label{sub:enumerate}
+
+\begin{frame}\frametitle{Enumerate}\framesubtitle{Shown is an enumerated list}
+\begin{enumerate} 
+\item<1-| alert@1> Item 1 (initially shown as alerted text)
+\item<2-> Item 2
+\item<3-> Item 3
+\item<3-> Item 4
+\end{enumerate}
+\end{frame}
+
+% subsection enumerate (end)
+
+\subsection{Itemize} %
+\label{sub:itemize}
+
+\begin{frame}\frametitle{Itemize}\framesubtitle{Shown is an itemized list}
+\begin{itemize}
+\item<1-> Item 1
+\item<2-> Item 2
+\item<3-> Item 3
+\item<4-> Item 4
+\end{itemize}
+\end{frame}
+
+% subsection itemize (end)
+
+\subsection{Tables} %
+\label{sub:tables}
+\begin{table}[ht]
+	\caption{Example Table}
+	\label{tab:example_table}
+	\begin{center}
+		\begin{tabular}{| c | c | c | c |}
+		\hline Column \# / Row \# & 1 / 1 & 2 / 1 & 3 / 2 \\ \hline
+		 & 1 / 2 & 2 / 2 & 3 / 2 \\ \hline
+		 & 1 / 3 & 2 / 3 & 3 / 3 \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+% subsection tables (end)
+
+% section lists (end)
+
+\section{Columns} %
+\label{sec:columns}
+
+\begin{frame}\frametitle{Outline}\framesubtitle{Columns}
+	\tableofcontents[currentsubsection, hideothersubsections]	
+\end{frame}
+
+\subsection{Column with Lists} %
+\label{sub:column_with_lists}
+
+\begin{frame}\frametitle{Columns with lists}\framesubtitle{Two columns, each with a list}
+%% This utilizes the specially made package which creates a shortcut for inserting columns
+	\(
+	\<{0.45\textwidth}
+	\begin{itemize}
+		\item Item 1
+		\item Item 2
+		\item Item 3
+	\end{itemize}
+	\>
+	\<{0.45\textwidth}
+	\begin{enumerate}
+		\item Item 1
+		\item Item 2
+		\item Item 3
+	\end{enumerate}
+	\>
+	\)
+\end{frame}
+
+% subsection column_with_lists (end)
+
+\subsection{Columne with a list and figures} %
+\label{sub:columne_with_a_list_and_figures}
+
+\begin{frame}\frametitle{Column with list and graphics}\framesubtitle{Two columns, one with a list and one with a figure}
+	\(
+	\<{0.49\textwidth}
+	\begin{itemize}
+		\item Explanation of the figure
+		\item Figure is not really worthwhile
+		\item Just the logo for the lab
+	\end{itemize}
+	\>
+	\<{0.49\textwidth}
+	\begin{figure}[ht]
+		\centering
+			\includegraphics[width=0.9\textwidth]{/Users/photojaguar/Documents/Templates/Logos/NMT_RIL_Logo.pdf}
+		\caption{Lab Logo}
+		\label{fig:lab_logo}
+	\end{figure}
+	\>
+	\)
+\end{frame}
+
+% subsection columne_with_a_list_and_figures (end)
+
+% section columns (end)
+
+\section{Conclusions and Results} %
+\label{sec:conclusions}
+
+\begin{frame}\frametitle{Outline}\framesubtitle{Conclusions and Results}
+	\tableofcontents[currentsubsection, hideothersubsections]	
+\end{frame}
+
+\subsection{Results} %
+\label{sub:results}
+
+\begin{frame}\frametitle{Results}\framesubtitle{Items learned from creating a beamer template}
+	\begin{itemize}
+		\item<1-> Learned how to create a beamer template
+		\item<2-> Learned how to make a package style file
+		\item<3-> Created a decent looking latex layout
+		\item<4-> Got pretty good at searching the internet for \LaTeX help
+	\end{itemize}
+\end{frame}
+
+% subsection results (end)
+
+\subsection{Discussions} %
+\label{sub:discussions}
+
+\begin{frame}\frametitle{Discussions}\framesubtitle{}
+	\begin{itemize}
+		\item This is a work in progress
+		\item This is not perfect
+		\item I am not a good coder, so the coding practices are probably not up to snuff
+	\end{itemize}
+\end{frame}
+
+% subsection discussions (end)
+
+\subsection{Conclusions} %
+\label{sub:conclusions}
+
+\begin{frame}\frametitle{Conclusions}
+\begin{itemize}
+	\item Making a package takes more effort the first time around than I expected
+	\item I don't know if I'll ever make another beamer template
+	\item Who knows, maybe I will end up making bunches
+	\item Doesn't really matter, I'm just making a list for a feaux conclusions frame
+\end{itemize}
+\end{frame}
+
+% subsection conclusions (end)
+
+\subsection{Future Work} %
+\label{sub:future_work}
+
+\begin{frame}\frametitle{Future Work}\framesubtitle{}
+	\begin{itemize}
+		\item Keep template updated
+		\item Maybe actually use the template for something
+		\item Keep my fingers crossed that the process of creating this template wasn't for nothing
+	\end{itemize}
+\end{frame}
+
+% subsection future_work (end)
+
+% section conclusions (end)
+
+
+\end{document}

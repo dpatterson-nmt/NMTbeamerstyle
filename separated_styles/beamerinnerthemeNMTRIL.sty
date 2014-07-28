@@ -1,0 +1,67 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \ifnum\thepage>1\relax%
+    \fill[white, opacity = 1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \fill[color = NMTblue] (0,0.525) rectangle(\the\paperwidth,0.575); % <- Dimensions of RILred box
+    \fill[color = Grey] (0,0) rectangle(\the\paperwidth,0.5); % <- Dimensions of grey box
+  \else
+    \fill[color = RILred] (0,6) rectangle (\the\paperwidth,9.8);% <- Dimensions of NMTblue box
+    \fill[color = NMTblue] (0,0.525) rectangle(\the\paperwidth,0.575); % <- Dimensions of RILred box
+    \fill[color = Grey] (0,0) rectangle(\the\paperwidth,0.5); % <- Dimensions of grey box
+  \fi
+  \end{tikzpicture}
+}
+
+%%% Items %%%
+\setbeamertemplate{items}[square]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+%%% Title page %%%
+\setbeamertemplate{title page}{
+  \begin{textblock*}{12cm}(1.25cm, -3cm)
+    \begin{beamercolorbox}[wd = 10cm, right]{title page header}
+      \usebeamerfont{title}\usebeamercolor{title}\LARGE\inserttitle%
+    \end{beamercolorbox}%
+  \end{textblock*}
+  \begin{textblock*}{12cm}(0.25cm, -2.25cm)
+    \begin{beamercolorbox}[wd = 11cm, right]{title page header}
+      \usebeamerfont{title}\usebeamercolor{title}\large\insertsubtitle%
+    \end{beamercolorbox}%
+  \end{textblock*}
+  \begin{textblock*}{12.8cm}(-1cm, 0.25cm)
+    \begin{beamercolorbox}[center]{title page header}
+      \insertmotto%
+    \end{beamercolorbox}%
+  \end{textblock*}
+  \begin{textblock*}{12cm}(1.25cm, 2cm)
+    \begin{beamercolorbox}[wd=10cm, right]{title page header}
+      \inserttitlegraphic%
+    \end{beamercolorbox}%
+  \end{textblock*}
+  \begin{textblock*}{12cm}(1.25cm, 4cm)
+    \begin{beamercolorbox}[wd = 10cm, right]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+  \end{textblock*}
+  \begin{textblock*}{9cm}(-0.5cm, 5.075cm)
+    \begin{beamercolorbox}{date}
+      \usebeamerfont{date}\insertdate%
+    \end{beamercolorbox}
+  \end{textblock*}
+  \begin{textblock*}{12.8cm}(-1cm, 5.075cm)
+    \begin{beamercolorbox}[center]{date}
+      \usebeamerfont{date}\insertinstitute%
+    \end{beamercolorbox}
+  \end{textblock*}
+  \begin{textblock*}{9cm}(11cm, 5.075cm)
+    \begin{beamercolorbox}{date}
+      \usebeamerfont{date}\insertframenumber%
+    \end{beamercolorbox}
+  \end{textblock*}
+}
+
+
+\mode<all>

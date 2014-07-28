@@ -1,0 +1,168 @@
+\setbeamercolor{section in head/foot}{parent=palette tertiary}
+\setbeamercolor{subsection in head/foot}{parent=palette secondary}
+\setbeamercolor{author in head/foot}{parent=subsection in head/foot}
+\setbeamercolor{title in head/foot}{parent=section in head/foot}
+
+\newif\ifbeamer@theme@subsection
+\beamer@theme@subsectiontrue
+
+\DeclareOptionBeamer{subsection}[true]{\csname beamer@theme@subsection#1\endcsname}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+%%% Requirement %%%
+\RequirePackage{tikz, textpos}
+
+%%% Beamer Color Definitions %%%
+
+\definecolor{NMTblue}{RGB}{31,59,102}
+\definecolor{RILred}{RGB}{129,50,54}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+%%% Title Colors %%%
+\setbeamercolor{title page header}{fg = lightgray}
+\setbeamercolor{author}{fg = black}
+\setbeamercolor{date}{fg = white}
+\setbeamercolor{item}{fg = NMTblue}
+
+%%% Frame Colors %%%
+\setbeamercolor{frametitle}{fg = RILred!85}
+\setbeamercolor{frame number}{fg = white}
+
+%%% Block Colors %%%
+\setbeamercolor{note}{fg = black, bg = lightgray}
+\setbeamercolor{block title}{fg = LightGray, bg = NMTblue}
+\setbeamercolor{block body}{fg = black, bg = LightGray}
+\setbeamercolor{block title alerted}{fg = LightGray, bg = RILred}
+\setbeamercolor{block body alerted}{fg = RILred, bg = LightGray}
+\setbeamercolor{block title example}{fg = black, bg = LightGray}
+\setbeamercolor{block body example}{fg = LightGray, bg = NMTblue}
+
+%%% Beamer Inner Theme %%%
+
+\setbeamercolor{normal text}{fg = black, bg = white}
+\setbeamercolor{alerted text}{fg = RILred}
+\setbeamercolor{structure}{fg = NMTblue}
+
+\setbeamercolor{palette tertiary}{fg = black, bg = white}
+\setbeamercolor{palette secondary}{fg = black, bg = NMTblue}
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \ifnum\thepage>1\relax%
+    \fill[white, opacity = 1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \fill[color = NMTblue] (0,0.525) rectangle(\the\paperwidth,0.575); % <- Dimensions of RILred box
+    \fill[color = Grey] (0,0) rectangle(\the\paperwidth,0.5); % <- Dimensions of grey box
+  \else
+    \fill[color = RILred] (0,6) rectangle (\the\paperwidth,9.8);% <- Dimensions of NMTblue box
+    \fill[color = NMTblue] (0,0.525) rectangle(\the\paperwidth,0.575); % <- Dimensions of RILred box
+    \fill[color = Grey] (0,0) rectangle(\the\paperwidth,0.5); % <- Dimensions of grey box
+  \fi
+  \end{tikzpicture}
+}
+
+%%% Items %%%
+\setbeamertemplate{items}[square]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+%%% Title page %%%
+\setbeamertemplate{title page}{
+  \begin{textblock*}{12cm}(1.25cm, -3cm)
+    \begin{beamercolorbox}[wd = 10cm, right]{title page header}
+      \usebeamerfont{title}\usebeamercolor{title}\LARGE\inserttitle%
+    \end{beamercolorbox}%
+  \end{textblock*}
+  \begin{textblock*}{12cm}(0.25cm, -2.25cm)
+    \begin{beamercolorbox}[wd = 11cm, right]{title page header}
+      \usebeamerfont{title}\usebeamercolor{title}\large\insertsubtitle%
+    \end{beamercolorbox}%
+  \end{textblock*}
+  \begin{textblock*}{12.8cm}(-1cm, 0.25cm)
+    \begin{beamercolorbox}[center]{title page header}
+      \insertmotto%
+    \end{beamercolorbox}%
+  \end{textblock*}
+  \begin{textblock*}{12cm}(1.25cm, 2cm)
+    \begin{beamercolorbox}[wd=10cm, right]{title page header}
+      \inserttitlegraphic%
+    \end{beamercolorbox}%
+  \end{textblock*}
+  \begin{textblock*}{12cm}(1.25cm, 4cm)
+    \begin{beamercolorbox}[wd = 10cm, right]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+  \end{textblock*}
+  \begin{textblock*}{9cm}(-0.5cm, 5.075cm)
+    \begin{beamercolorbox}{date}
+      \usebeamerfont{date}\insertdate%
+    \end{beamercolorbox}
+  \end{textblock*}
+  \begin{textblock*}{12.8cm}(-1cm, 5.075cm)
+    \begin{beamercolorbox}[center]{date}
+      \usebeamerfont{date}\insertinstitute%
+    \end{beamercolorbox}
+  \end{textblock*}
+  \begin{textblock*}{9cm}(11cm, 5.075cm)
+    \begin{beamercolorbox}{date}
+      \usebeamerfont{date}\insertframenumber%
+    \end{beamercolorbox}
+  \end{textblock*}
+}
+
+%%% Beamer Outer Theme %%%
+
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+  \end{beamercolorbox}%
+  \ifbeamer@theme@subsection%
+    \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+%%% Frame title %%%
+\setbeamertemplate{frametitle}{
+\vskip1cm%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
+  \begin{tikzpicture}
+    \useasboundingbox[fill = white](0,0) rectangle(\the\paperwidth,1.2);
+    \node[anchor=west, font = \large] at (0.75,1.875){\insertframetitle};
+    \ifx\insertframesubtitle\@empty%
+    \else%
+      {\node[anchor= west, black, font=\small] at (1,1.375){\insertframesubtitle};}%
+    \fi
+  \end{tikzpicture}
+  \end{beamercolorbox}
+  \vspace{-1.25cm}
+  \begin{textblock*}{9cm}(11cm, 7.65cm)
+    \begin{beamercolorbox}{date}
+      \usebeamerfont{date}\normalsize\insertframenumber%
+    \end{beamercolorbox}
+  \end{textblock*}
+}
+
+%%% Gets rid of fading on blocks %%%
+\makeatletter
+\pgfdeclareverticalshading[lower.bg,upper.bg]{bmb@transition}{200cm}{%
+  color(0pt)=(lower.bg); color(4pt)=(lower.bg); color(4pt)=(upper.bg)}
+\makeatother
+
+
+\setbeamertemplate{itemize items}{$\bullet$}
+\setbeamertemplate{blocks}[rounded][shadow = false]
+\setbeamertemplate{caption}[numbered]
+
+\mode<all>
