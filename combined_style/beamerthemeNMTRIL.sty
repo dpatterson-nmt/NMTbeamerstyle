@@ -71,8 +71,8 @@
 
 %%% Title page %%%
 \setbeamertemplate{title page}{
-  \begin{textblock*}{12cm}(1.25cm, -3cm)
-    \begin{beamercolorbox}[wd = 10cm, right]{title page header}
+  \begin{textblock*}{12cm}(-0.75cm, -3cm)
+    \begin{beamercolorbox}[wd = 12cm, right]{title page header}
       \usebeamerfont{title}\usebeamercolor{title}\LARGE\inserttitle%
     \end{beamercolorbox}%
   \end{textblock*}
@@ -116,35 +116,35 @@
 %%% Beamer Outer Theme %%%
 
 \setbeamertemplate{headline}{%
-  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
-  \end{beamercolorbox}
-  \begin{beamercolorbox}{section in head/foot}
-    \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
-  \end{beamercolorbox}%
-  \ifbeamer@theme@subsection%
-    \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
-    \end{beamercolorbox}
-    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
-      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
-      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
-    \end{beamercolorbox}%
-  \fi%
-  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
-  \end{beamercolorbox}
+ 	\begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+ 	\end{beamercolorbox}
+	\begin{beamercolorbox}{section in head/foot}
+		\vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+	\end{beamercolorbox}%
+	\ifbeamer@theme@subsection%
+		\begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+		\end{beamercolorbox}
+		\begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+			leftskip=.3cm,rightskip=.3cm plus1fil]{section in head/foot}
+			\usebeamerfont{subsection in head/foot}\insertsubsectionhead
+		\end{beamercolorbox}%
+	\fi%
+	\begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+	\end{beamercolorbox}
 }
 
 %%% Frame title %%%
 \setbeamertemplate{frametitle}{
 \vskip1cm%
   \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
-  \begin{tikzpicture}
-    \useasboundingbox[fill = white](0,0) rectangle(\the\paperwidth,1.2);
-    \node[anchor=west, font = \large] at (0.75,1.875){\insertframetitle};
-    \ifx\insertframesubtitle\@empty%
-    \else%
-      {\node[anchor= west, black, font=\small] at (1,1.375){\insertframesubtitle};}%
-    \fi
-  \end{tikzpicture}
+    \begin{tikzpicture}
+      \useasboundingbox[fill = white](0,0) rectangle(\the\paperwidth,1.2);
+      \node[anchor=west, font = \large] at (0.75,1.875){\insertframetitle};
+      \ifx\insertframesubtitle\@empty%
+      \else%
+        {\node[anchor= west, black, font=\small] at (1,1.375){\insertframesubtitle};}%
+      \fi
+    \end{tikzpicture}
   \end{beamercolorbox}
   \vspace{-1.25cm}
   \begin{textblock*}{9cm}(11cm, 7.65cm)
