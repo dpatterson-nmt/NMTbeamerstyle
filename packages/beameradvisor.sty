@@ -1,0 +1,22 @@
+% 
+% 
+% (c) David Patterson
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+% 
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{beameradvisor}
+  [2011/01/11 v0.01 LaTeX package for inserting an advisor to the presentation into beamer]
+
+\newcommand{\advisor}{\beamer@theme@advisor}
+\long\def\beamer@theme@advisor#1{%
+  \def\insertadvisor{#1}%
+}
+
+\endinput
+
+%%
+%% End of file `beameradvisor.sty'.

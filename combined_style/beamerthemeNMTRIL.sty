@@ -14,6 +14,8 @@
 %%% Requirement %%%
 \RequirePackage{tikz, textpos}
 
+\titlegraphic{\includegraphics[width=0.35\textwidth]{Logos/NMT_RIL_Logo.pdf}}
+
 %%% Beamer Color Definitions %%%
 
 \definecolor{NMTblue}{RGB}{31,59,102}
@@ -23,7 +25,7 @@
 \setbeamertemplate{blocks}[rounded][shadow=false]
 
 %%% Title Colors %%%
-\setbeamercolor{title page header}{fg = lightgray}
+\setbeamercolor{title page header}{fg = lightgray!50}
 \setbeamercolor{author}{fg = black}
 \setbeamercolor{date}{fg = white}
 \setbeamercolor{item}{fg = NMTblue}
@@ -86,15 +88,32 @@
 			\insertmotto%
 		\end{beamercolorbox}%
 	\end{textblock*}
-	\begin{textblock*}{12cm}(1.25cm, 2cm)
+	\begin{textblock*}{12cm}(-1cm, 0cm)
+		\begin{beamercolorbox}[wd=10cm, left]{title page header}
+			\inserttitleimage%
+		\end{beamercolorbox}%
+	\end{textblock*}
+	\ifx\insertadvisor\@empty%
+		\ifx\insertauthor\@empty%
+		\else%
+			\begin{textblock*}{12cm}(1.25cm, 0.0cm)
+				\begin{beamercolorbox}[wd = 10cm, right]{author}
+					\usebeamerfont{author}Speaker: \insertauthor
+				\end{beamercolorbox}
+			\end{textblock*}
+		\fi
+	\else%
+		\begin{textblock*}{12cm}(1.25cm, 0.0cm)
+			\begin{beamercolorbox}[wd = 10cm, right]{author}
+				\usebeamerfont{author}Speaker: \insertauthor
+				\\Advisor: \insertadvisor%
+			\end{beamercolorbox}
+		\end{textblock*}
+	\fi
+	\begin{textblock*}{12cm}(1.25cm, 3cm)
 		\begin{beamercolorbox}[wd=10cm, right]{title page header}
 			\inserttitlegraphic%
 		\end{beamercolorbox}%
-	\end{textblock*}
-	\begin{textblock*}{12cm}(1.25cm, 4cm)
-		\begin{beamercolorbox}[wd = 10cm, right]{author}
-			\usebeamerfont{author}\insertauthor%
-		\end{beamercolorbox}
 	\end{textblock*}
 	\begin{textblock*}{9cm}(-0.5cm, 5.075cm)
 		\begin{beamercolorbox}{date}
