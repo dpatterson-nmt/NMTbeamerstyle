@@ -1,0 +1,19 @@
+#OS Files
+*.DS_Store
+
+#TeX Files
+*.aux
+*.bbl
+*.bak
+*.blg
+*.doc
+*.docx
+*.gz
+*.gz(busy)
+*.log
+*.lot
+*.lof
+*.nav
+*.out
+*.snm
+*.toc
